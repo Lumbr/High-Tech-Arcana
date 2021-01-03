@@ -1,3 +1,13 @@
 {
-	"item.hightecharcana.mcchicken" : "McChicken"
+	"itemGroup.arcana" : "High Tech Arcana",
+	"item.hightecharcana.mcchicken" : "McChicken",
+	"item.hightecharcana.mcchicken_axe" : "McChicken Axe",
+	"item.hightecharcana.mcchicken_pickaxe" : "McChicken Pickaxe",
+	"item.hightecharcana.mcchicken_shovel" : "McChicken Shovel",
+	"item.hightecharcana.mcchicken_hoe" : "McChicken Hoe",
+	"item.hightecharcana.mcchicken_sword" : "McChicken Sword",
+	
+	"block.hightecharcana.mcchicken_block" : "Block of McChicken"
+	
+	
 }
