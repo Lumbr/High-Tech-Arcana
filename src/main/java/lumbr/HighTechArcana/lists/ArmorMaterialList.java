@@ -10,7 +10,7 @@ import net.minecraft.util.SoundEvent;
 
 public enum ArmorMaterialList implements IArmorMaterial
 {
-	mcchicken("mcchicken", 400, new int[] {8,10,9,7}, 25, ItemList.mcchicken, "");
+	mcchicken("mcchicken", 400, new int[] {8,10,9,7}, 25, ItemList.mcchicken, "block.bell.use" , 0.0f, 1.0f);
 	
 	public static final int[] max_damage_array = new int[] {13,15,16,11};
 	private String name, equipSound;
@@ -18,7 +18,9 @@ public enum ArmorMaterialList implements IArmorMaterial
 	private Item repairItem;
 	private int[] damageReductionAmounts;
 	private float toughness;
-	private void ArmourMaterialList(String name, int durability, int[] damageReductionAmounts, int enchantability, Item repairItem, String equipSound, float toughness) 
+	private float knockbackResistance;
+	
+	private ArmorMaterialList(String name, int durability, int[] damageReductionAmounts, int enchantability, Item repairItem, String equipSound, float toughness, float knockbackResistance) 
 	{
 		this.name = name;
 		this.equipSound = equipSound;
@@ -27,6 +29,7 @@ public enum ArmorMaterialList implements IArmorMaterial
 		this.repairItem = repairItem;
 		this.damageReductionAmounts = damageReductionAmounts;
 		this.toughness = toughness;
+		this.knockbackResistance = knockbackResistance;
 	}
 	@Override
 	public int getDurability(EquipmentSlotType slot)
@@ -67,12 +70,12 @@ public enum ArmorMaterialList implements IArmorMaterial
 	public float getToughness()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return this.toughness;
 	}
 	@Override
 	public float getKnockbackResistance()
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return this.knockbackResistance;
 	}
 }

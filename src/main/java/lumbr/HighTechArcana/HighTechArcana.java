@@ -3,6 +3,7 @@ package lumbr.HighTechArcana;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import lumbr.HighTechArcana.lists.ArmorMaterialList;
 import lumbr.HighTechArcana.lists.BlockList;
 import lumbr.HighTechArcana.lists.ItemList;
 import lumbr.HighTechArcana.lists.ToolMaterialList;
@@ -10,6 +11,8 @@ import net.minecraft.block.Block;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.HoeItem;
@@ -71,7 +74,11 @@ public class HighTechArcana {
 					ItemList.mcchicken_hoe = new HoeItem(ToolMaterialList.mcchicken, -4, 0f,new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_hoe")),
 					ItemList.mcchicken_shovel = new ShovelItem(ToolMaterialList.mcchicken, -4, -3f,new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_shovel")),
 					ItemList.mcchicken_sword = new SwordItem(ToolMaterialList.mcchicken, 0, -2.4f,new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_sword")),
-					
+					// Armour
+					ItemList.mcchicken_helmet = new ArmorItem(ArmorMaterialList.mcchicken, EquipmentSlotType.HEAD , new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_helmet")),
+					ItemList.mcchicken_chestplate = new ArmorItem(ArmorMaterialList.mcchicken, EquipmentSlotType.CHEST , new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_chestplate")),
+					ItemList.mcchicken_leggings = new ArmorItem(ArmorMaterialList.mcchicken, EquipmentSlotType.LEGS , new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_leggings")),
+					ItemList.mcchicken_boots = new ArmorItem(ArmorMaterialList.mcchicken, EquipmentSlotType.FEET , new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_boots")),
 					//BlockItems
 					ItemList.mcchicken_block = new BlockItem(BlockList.mcchicken_block, new Item.Properties().group(arcana)).setRegistryName(BlockList.mcchicken_block.getRegistryName())
 					

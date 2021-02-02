@@ -1,11 +1,20 @@
 {
+	
 	"itemGroup.arcana" : "High Tech Arcana",
 	"item.hightecharcana.mcchicken" : "McChicken",
+	
+	
 	"item.hightecharcana.mcchicken_axe" : "McChicken Axe",
 	"item.hightecharcana.mcchicken_pickaxe" : "McChicken Pickaxe",
 	"item.hightecharcana.mcchicken_shovel" : "McChicken Shovel",
 	"item.hightecharcana.mcchicken_hoe" : "McChicken Hoe",
 	"item.hightecharcana.mcchicken_sword" : "McChicken Sword",
+	
+	
+	"item.hightecharcana.mcchicken_helmet" : "McChicken Helmet",
+	"item.hightecharcana.mcchicken_chestplate" : "McChicken Chestplate",
+	"item.hightecharcana.mcchicken_leggings" : "McChicken Leggings",
+	"item.hightecharcana.mcchicken_boots" : "McChicken Boots",
 	
 	"block.hightecharcana.mcchicken_block" : "Block of McChicken"
 	
