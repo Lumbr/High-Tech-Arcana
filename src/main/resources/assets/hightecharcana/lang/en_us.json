@@ -16,7 +16,9 @@
 	"item.hightecharcana.mcchicken_leggings" : "McChicken Leggings",
 	"item.hightecharcana.mcchicken_boots" : "McChicken Boots",
 	
-	"block.hightecharcana.mcchicken_block" : "Block of McChicken"
+	"block.hightecharcana.mcchicken_block" : "Block of McChicken",
+	"block.hightecharcana.mana_crystal_ore" : "Mana Crystal Ore"
+	
 	
 	
 }

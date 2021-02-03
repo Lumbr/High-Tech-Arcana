@@ -80,7 +80,8 @@ public class HighTechArcana {
 					ItemList.mcchicken_leggings = new ArmorItem(ArmorMaterialList.mcchicken, EquipmentSlotType.LEGS , new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_leggings")),
 					ItemList.mcchicken_boots = new ArmorItem(ArmorMaterialList.mcchicken, EquipmentSlotType.FEET , new Item.Properties().group(arcana)).setRegistryName(location("mcchicken_boots")),
 					//BlockItems
-					ItemList.mcchicken_block = new BlockItem(BlockList.mcchicken_block, new Item.Properties().group(arcana)).setRegistryName(BlockList.mcchicken_block.getRegistryName())
+					ItemList.mcchicken_block = new BlockItem(BlockList.mcchicken_block, new Item.Properties().group(arcana)).setRegistryName(BlockList.mcchicken_block.getRegistryName()),
+					ItemList.mana_crystal_ore = new BlockItem(BlockList.mana_crystal_ore, new Item.Properties().group(arcana)).setRegistryName(BlockList.mana_crystal_ore.getRegistryName())
 					
 					
 			);
@@ -92,7 +93,8 @@ public class HighTechArcana {
 		{
 			event.getRegistry().registerAll(
 					//ItemList.mcchicken = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("mcchicken"))
-					BlockList.mcchicken_block = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f, 1.0f).sound(SoundType.FUNGUS)).setRegistryName(location("mcchicken_block"))
+					BlockList.mcchicken_block = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f, 1.0f).sound(SoundType.FUNGUS)).setRegistryName(location("mcchicken_block")),
+					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0f, 2.0f).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
 			);
 			
 			logger.info("Blocks registered");

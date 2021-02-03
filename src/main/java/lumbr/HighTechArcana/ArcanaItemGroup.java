@@ -17,7 +17,7 @@ public class ArcanaItemGroup extends ItemGroup
 	public ItemStack createIcon()
 	{
 		// TODO Auto-generated method stub
-		return new ItemStack(ItemList.mcchicken);
+		return new ItemStack(ItemList.mana_crystal_ore);
 	}
 
 }

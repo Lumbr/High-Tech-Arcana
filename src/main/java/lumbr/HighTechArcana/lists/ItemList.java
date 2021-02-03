@@ -18,4 +18,5 @@ public class ItemList {
 	
 	
 	public static Item mcchicken_block;
+	public static Item mana_crystal_ore;
 }
