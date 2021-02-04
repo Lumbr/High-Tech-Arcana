@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "hightecharcana:item/unrefined_mana_shard"
+  }
+}

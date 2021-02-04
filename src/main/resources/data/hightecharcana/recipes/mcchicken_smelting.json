@@ -1,0 +1,7 @@
+{
+	"type" : "minecraft:crafting_shapeless",
+	"ingredients" : [{ "item" : "hightecharcana:mcchicken"},{ "item" : "hightecharcana:mcchicken"}],
+	"result" : "hightecharcana:mcchicken",
+	"count" : "2"
+	
+}

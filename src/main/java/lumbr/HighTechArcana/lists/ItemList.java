@@ -3,6 +3,8 @@ package lumbr.HighTechArcana.lists;
 import net.minecraft.item.Item;
 
 public class ItemList {
+	
+	//funni meme items
 	public static Item mcchicken;
 	
 	public static Item mcchicken_axe;
@@ -18,5 +20,13 @@ public class ItemList {
 	
 	
 	public static Item mcchicken_block;
+	
+	
+	//Actual Items:
+	//items
+	public static Item unrefined_mana_shard;
+	//tools
+	//armour
+	//blocks
 	public static Item mana_crystal_ore;
 }

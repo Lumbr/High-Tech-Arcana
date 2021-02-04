@@ -7,6 +7,7 @@ import lumbr.HighTechArcana.lists.ArmorMaterialList;
 import lumbr.HighTechArcana.lists.BlockList;
 import lumbr.HighTechArcana.lists.ItemList;
 import lumbr.HighTechArcana.lists.ToolMaterialList;
+import lumbr.HighTechArcana.world.gen.OreGeneration;
 import net.minecraft.block.Block;
 
 import net.minecraft.block.SoundType;
@@ -51,14 +52,18 @@ public class HighTechArcana {
 	
 
 	}
-	private void setup(final FMLCommonSetupEvent event) {
+	private void setup(final FMLCommonSetupEvent event) 
+	{
+		OreGeneration.registerOre();
 		logger.info("Setup method registered");
 	}
-	private void clientRegistries(final FMLClientSetupEvent event) {
+	private void clientRegistries(final FMLClientSetupEvent event) 
+	{
 		logger.info("clientRegisteries method registered");
 	}
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-	public static class RegistryEvents{
+	public static class RegistryEvents
+	{
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) 
 		{
@@ -66,6 +71,7 @@ public class HighTechArcana {
 					
 					// Plain Items
 					ItemList.mcchicken = new Item(new Item.Properties().group(arcana)).setRegistryName(location("mcchicken")),
+					ItemList.unrefined_mana_shard = new Item(new Item.Properties().group(arcana)).setRegistryName(location("unrefined_mana_shard")),
 					
 					
 					// Tool Items
@@ -94,12 +100,13 @@ public class HighTechArcana {
 			event.getRegistry().registerAll(
 					//ItemList.mcchicken = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("mcchicken"))
 					BlockList.mcchicken_block = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f, 1.0f).sound(SoundType.FUNGUS)).setRegistryName(location("mcchicken_block")),
-					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(2.0f, 2.0f).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
+					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0f, 4.0f).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
 			);
 			
 			logger.info("Blocks registered");
 		}
-		private static ResourceLocation location(String name) {
+		private static ResourceLocation location(String name) 
+		{
 			
 			return new ResourceLocation(modid, name);
 			
