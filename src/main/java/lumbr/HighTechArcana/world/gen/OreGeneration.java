@@ -31,7 +31,7 @@ public class OreGeneration
 		overworldOres.add(register("mana_crystal_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
 				OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockList.mana_crystal_ore.getDefaultState(), 6))
 				.range(64).square()
-				.func_242731_b(18)
+				.func_242731_b(12)
 				
 				));
 	}

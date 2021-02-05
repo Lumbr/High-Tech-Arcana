@@ -3,6 +3,7 @@ package lumbr.HighTechArcana;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import lumbr.HighTechArcana.config.Config;
 import lumbr.HighTechArcana.lists.ArmorMaterialList;
 import lumbr.HighTechArcana.lists.BlockList;
 import lumbr.HighTechArcana.lists.ItemList;
@@ -26,10 +27,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 @Mod("hightecharcana")
 public class HighTechArcana {
@@ -38,7 +42,7 @@ public class HighTechArcana {
 	
 	public static HighTechArcana instance;
 	public static final String modid = "hightecharcana";
-	private static final Logger logger = LogManager.getLogger(modid);
+	public static final Logger logger = LogManager.getLogger(modid);
 	
 	public static final ItemGroup arcana = new ArcanaItemGroup();
 	
@@ -46,9 +50,15 @@ public class HighTechArcana {
 		
 		instance = this;
 		
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.client_config);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.server_config);
+		
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
 		MinecraftForge.EVENT_BUS.register(this);
+		
+		Config.loadConfig(Config.client_config, FMLPaths.CONFIGDIR.get().resolve("hightecharcana-client.toml").toString());
+		Config.loadConfig(Config.client_config, FMLPaths.CONFIGDIR.get().resolve("hightecharcana-server.toml").toString());
 	
 
 	}
@@ -100,7 +110,7 @@ public class HighTechArcana {
 			event.getRegistry().registerAll(
 					//ItemList.mcchicken = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("mcchicken"))
 					BlockList.mcchicken_block = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f, 1.0f).sound(SoundType.FUNGUS)).setRegistryName(location("mcchicken_block")),
-					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0f, 4.0f).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
+					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0f, 15.0f).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
 			);
 			
 			logger.info("Blocks registered");
