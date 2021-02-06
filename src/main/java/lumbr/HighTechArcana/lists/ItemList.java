@@ -25,6 +25,7 @@ public class ItemList {
 	//Actual Items:
 	//items
 	public static Item unrefined_mana_shard;
+	public static Item blaze_king_egg;
 	//tools
 	//armour
 	//blocks

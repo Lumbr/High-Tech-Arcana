@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import lumbr.HighTechArcana.config.Config;
 import lumbr.HighTechArcana.lists.ArmorMaterialList;
 import lumbr.HighTechArcana.lists.BlockList;
+import lumbr.HighTechArcana.lists.EntityList;
 import lumbr.HighTechArcana.lists.ItemList;
 import lumbr.HighTechArcana.lists.ToolMaterialList;
 import lumbr.HighTechArcana.world.gen.OreGeneration;
@@ -13,6 +14,7 @@ import net.minecraft.block.Block;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
@@ -25,6 +27,7 @@ import net.minecraft.item.ShovelItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -50,8 +53,8 @@ public class HighTechArcana {
 		
 		instance = this;
 		
-		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.client_config);
-		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.server_config);
+		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, Config.client_config, "hightecharcana-client.toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.server_config, "hightecharcana-server.toml");
 		
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::clientRegistries);
@@ -102,6 +105,8 @@ public class HighTechArcana {
 					
 			);
 			
+			EntityList.registerEntitySpawnEggs(event);
+			
 			logger.info("Items registered");
 		}
 		@SubscribeEvent
@@ -110,12 +115,22 @@ public class HighTechArcana {
 			event.getRegistry().registerAll(
 					//ItemList.mcchicken = new Item(new Item.Properties().group(ItemGroup.MISC)).setRegistryName(location("mcchicken"))
 					BlockList.mcchicken_block = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(1.0f, 1.0f).sound(SoundType.FUNGUS)).setRegistryName(location("mcchicken_block")),
-					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).hardnessAndResistance(4.0f, 15.0f).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
+					BlockList.mana_crystal_ore = new Block(Block.Properties.create(Material.IRON).setRequiresTool().hardnessAndResistance(4.0f, 15.0f).harvestTool(ToolType.PICKAXE).harvestLevel(1).sound(SoundType.STONE)).setRegistryName(location("mana_crystal_ore"))
 			);
 			
 			logger.info("Blocks registered");
 		}
-		private static ResourceLocation location(String name) 
+		public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event)
+		{
+			event.getRegistry().registerAll
+			(
+					EntityList.BLAZE_KING
+					
+			);
+			
+			//EntityList.registerEntityWorldSpawns();
+		}
+		public static ResourceLocation location(String name) 
 		{
 			
 			return new ResourceLocation(modid, name);
