@@ -3,7 +3,9 @@ package lumbr.HighTechArcana;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import lumbr.HighTechArcana.client.renders.ArcanaRenderRegistry;
 import lumbr.HighTechArcana.config.Config;
+import lumbr.HighTechArcana.entities.BlazeKing;
 import lumbr.HighTechArcana.lists.ArmorMaterialList;
 import lumbr.HighTechArcana.lists.BlockList;
 import lumbr.HighTechArcana.lists.EntityList;
@@ -67,11 +69,13 @@ public class HighTechArcana {
 	}
 	private void setup(final FMLCommonSetupEvent event) 
 	{
+		BlazeKing.setCustomAttributes().create();
 		OreGeneration.registerOre();
 		logger.info("Setup method registered");
 	}
 	private void clientRegistries(final FMLClientSetupEvent event) 
 	{
+		ArcanaRenderRegistry.registryEntityRenders();
 		logger.info("clientRegisteries method registered");
 	}
 	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -124,12 +128,13 @@ public class HighTechArcana {
 		{
 			event.getRegistry().registerAll
 			(
-					EntityList.BLAZE_KING
+					EntityList.blaze_king
 					
 			);
 			
 			//EntityList.registerEntityWorldSpawns();
 		}
+		
 		public static ResourceLocation location(String name) 
 		{
 			

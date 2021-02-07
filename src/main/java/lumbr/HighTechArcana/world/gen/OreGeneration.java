@@ -30,8 +30,8 @@ public class OreGeneration
 	{
 		overworldOres.add(register("mana_crystal_ore", Feature.ORE.withConfiguration(new OreFeatureConfig(
 				OreFeatureConfig.FillerBlockType.BASE_STONE_OVERWORLD, BlockList.mana_crystal_ore.getDefaultState(), 6))
-				.range(64).square()
-				.func_242731_b(12)
+				.range(64).square() // height at which it begins to spawn
+				.func_242731_b(10) // how many veins per chunk
 				
 				));
 	}

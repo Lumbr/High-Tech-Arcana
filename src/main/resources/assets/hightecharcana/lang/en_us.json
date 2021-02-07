@@ -23,6 +23,8 @@
 	
 	
 	"item.hightecharcana.unrefined_mana_shard" : "Unrefined Mana Shard",
+	"item.hightecharcana.blaze_king_egg" : "Spawn Blaze King",
+	"entity.hightecharcana.blaze_king" : "Blaze King",
 	"block.hightecharcana.mana_crystal_ore" : "Mana Crystal Ore"
 	
 	

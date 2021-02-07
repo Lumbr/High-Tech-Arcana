@@ -18,14 +18,15 @@ public class EntityList
 {
 	
 	
-	public static EntityType<?> BLAZE_KING = EntityType.Builder.create(EntityClassification.MONSTER).build(HighTechArcana.modid + ":blaze_king").setRegistryName(HighTechArcana.RegistryEvents.location("blaze_king"));
+	@SuppressWarnings("unchecked")
+	public static final EntityType<BlazeKing> blaze_king = (EntityType<BlazeKing>) EntityType.Builder.create(BlazeKing::new, EntityClassification.MONSTER).build(HighTechArcana.modid + ":blaze_king").setRegistryName(HighTechArcana.RegistryEvents.location("blaze_king"));
 	
 	
 	public static void registerEntitySpawnEggs(final RegistryEvent.Register<Item> event)
 	{
 		event.getRegistry().registerAll
 		(
-			ItemList.blaze_king_egg = registerEntitySpawnEgg(BLAZE_KING, 0xff9900, 0xff3c00, "blaze_king_egg")
+			ItemList.blaze_king_egg = registerEntitySpawnEgg(blaze_king, 0xff9900, 0xff3c00, "blaze_king_egg")
 				
 		);
 	}

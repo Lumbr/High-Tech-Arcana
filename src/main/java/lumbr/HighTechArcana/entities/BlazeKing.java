@@ -1,25 +1,26 @@
 package lumbr.HighTechArcana.entities;
 
+
 import lumbr.HighTechArcana.lists.EntityList;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
-
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 
 import net.minecraft.entity.ai.goal.SwimGoal;
-
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.world.World;
 
-public class BlazeKing extends MobEntity
+public class BlazeKing extends MonsterEntity 
 {
 
-	@SuppressWarnings("unchecked")
-	protected BlazeKing(World worldIn)
+
+	
+	public BlazeKing(EntityType<? extends MonsterEntity> blazeKing, World worldIn)
 	{
-		super((EntityType<? extends CreatureEntity>) EntityList.BLAZE_KING, worldIn);
+		super(blazeKing, worldIn);
 		
 	}
 	@Override
@@ -31,12 +32,15 @@ public class BlazeKing extends MobEntity
 		
 		
 	}
+
 	
 	public static AttributeModifierMap.MutableAttribute setCustomAttributes()
     {
-        return MobEntity.func_233666_p_()
+		
+        return MonsterEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 100.0D)
                 .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.25D);
+        
     }
 	
 }
